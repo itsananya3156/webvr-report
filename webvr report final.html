@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+<body>
+    <a-scene cursor="rayOrigin: mouse">
+    <a-assets>
+      <img  id="member" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/members.jpeg?v=1692099153902" >
+      
+      <img id="workshop1" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/workshop1.jpeg?v=1692100594084">
+      <img id="workshop2" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/workshop2.jpeg?v=1692100595101">
+      <img id="workshop3" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/workshop3.jpeg?v=1692102584665">
+      <img id="metaverse1" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/afe6b687-192f-40af-b580-4f6ebf8754df.Metaverse1.png?v=1692102527623">
+      <img id="metaverse2" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/e68d3d25-30cd-44bb-89a1-657cc62238b6.metaverse2.jpeg?v=1692102527765">
+      <img id="metaverse3" src="https://cdn.glitch.global/fa711e75-1d08-48ac-9546-4b007b66a99b/961de035-993d-4912-85e7-147afec6b0bd.metaverse3.jpeg?v=1692102527031">
+      </a-assets>
+        <!-- Floor -->
+        <a-box color="#603B13" position="0 -1 0" width="10" height="0.1" depth="10"></a-box>
+
+        <!-- Walls -->
+        <a-box color="#CE893F" position="0 1 -5" width="10" height="4" depth="0.2"></a-box>
+        <a-box color="#CE893F" position="0 1 5" width="10" height="4" depth="0.2"></a-box>
+        <a-box color="#CE893F" position="-5 1 0" width="0.2" height="4" depth="10"></a-box>
+        <a-box color="#CE893F" position="5 1 0" width="0.2" height="4" depth="10"></a-box>
+
+        <!-- Ceiling -->
+        <a-box color="#603B13" position="0 3 0" width="10" height="0.1" depth="10"></a-box>
+
+        <!-- TV with Hyperlink and Cursor -->
+        
+<a-image src="#workshop1" height="1.2" width="1.8" position="4.58582 1.58483 0.57955" material="" geometry="" rotation="0 90 0"></a-image>
+<a-image src="#workshop2" height="1.2" width="1.8" position="4.5525 1.58329 -1.47992" material="" geometry="" rotation="180 90 180"></a-image>
+<a-image src="#workshop3" height="1.2" width="1.8" position="4.80938 1.58664 2.79303" material="" geometry="" rotation="0 90 0"></a-image>
+<a-image src="#member" height="1.2" width="1.8" position="0 1.5 4" material="" geometry=""></a-image>
+<a-image src="#metaverse1" height="1.2" width="1.8" position="-4.79439 1.45523 0.15522" material="" geometry="" rotation="0 90 0"></a-image>
+<a-image src="#metaverse2" height="1.2" width="1.8" position="-4.75503 1.42853 2.9786" material="" geometry="" rotation="0 90 0"></a-image>
+<a-image src="#metaverse3" height="1.2" width="1.8" position="-4.64652 1.48877 -2.5093" material="" geometry="" rotation="0 90 0"></a-image>
+    
+      
+      
+      
+      
+        <a-box position="0 0.75 -3" width="2" height="1.2" depth="0.1" color="black">
+            <!-- Transparent Plane for Click Event on TV Screen -->
+            <a-plane position="0 0 0.052" width="1.8" height="1" color="transparent" 
+                     cursor-listener="event: click; href: https://ritecode2023.github.io/gamemenu.html;"></a-plane>
+        </a-box>
+
+        <!-- Small Table -->
+        <a-box color="#A0522D" position="-4.5 -1 4.5" width="0.8" height="1.5" depth="0.8"></a-box>
+
+        <!-- Flower Vase -->
+        <a-cylinder color="#228B22" position="-4.5 0 4.5" radius="0.1" height="0.8" rotation="0 90 0"></a-cylinder>
+        <a-cone color="#FF1493" position="-4.5 0.5 4.5" radius-bottom="0.05" radius-top="0.15" height="0.4" rotation="0 90 0"></a-cone>
+        
+        <!-- Ceiling Light -->
+        <a-light type="point" position="0 3 0" intensity="1.8" color="white"></a-light>
+
+         <!-- Carpet -->
+         <!--a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#2C3E50"></a-plane-->
+
+         <!-- Bookshelf -->
+        <a-box position="4 0.5 -4" width="1.5" height="4.6" depth="0.3" color="#654321"></a-box>
+        <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
+        <a-box position="4 0.2 -4" width="1.5" height="0.3" depth="3" color="#654321"></a-box>
+
+        <!-- Text above TV -->
+        <a-text value="Click on the TV to open menu" position="0 1.75 -3" color="blue" align="center" width="4"></a-text>
+    </a-scene>
+
+    <script>
+        AFRAME.registerComponent('cursor-listener', {
+            schema: {
+                href: { default: '' }
+            },
+            init: function () {
+                this.el.addEventListener('click', () => {
+                    if (this.data.href !== '') {
+                        window.open(this.data.href, '_blank');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
